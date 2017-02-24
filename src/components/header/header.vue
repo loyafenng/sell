@@ -42,12 +42,7 @@
 							<div class="text">优惠信息</div>
 							<div class="line"></div>
 						</div>
-						<ul v-if="seller.supports" class="support">
-							<li class="support-item" v-for="(item, index) in seller.supports">
-								<span class="icon" :class="classMap[seller.supports[index].type]"></span>
-							    <span class="text">{{seller.supports[index].description}}</span>
-							</li>
-						</ul>
+						<support :seller="seller"></support>
 						<div class="title">
 							<div class="line"></div>
 							<div class="text">商家公告</div>
@@ -68,7 +63,7 @@
 
 <script type="text/ecmascript-6">
 	import star from 'components/star/star';
-	
+	import support from 'components/support/support';
 	export default {
         props: {
             seller: {
@@ -92,7 +87,8 @@
             this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee'];
         },
         components: {
-            star
+            star,
+            support
         }
 	};
 </script>

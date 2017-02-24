@@ -39,13 +39,7 @@
   			<div class="content-wrapper border-1px">
   				<p class="content">{{seller.bulletin}}</p>
   			</div>
-  			<support></support>
-  			<ul v-if="seller.supports" class="support">
-					<li class="support-item border-1px" v-for="(item, index) in seller.supports">
-						<span class="icon" :class="classMap[seller.supports[index].type]"></span>
-					    <span class="text">{{seller.supports[index].description}}</span>
-					</li>
-				</ul>
+  			<support :seller="seller"></support>
   		</div>
   		<split></split>
   		<div class="pics">
@@ -74,6 +68,7 @@
 	import {saveToLocal, loadFromLocal} from 'common/js/store';
 	import star from 'components/star/star';
   import split from 'components/split/split';
+  import support from 'components/support/support';
     export default {
         props: {
             seller: {
@@ -147,7 +142,8 @@
         },
         components: {
             star,
-            split
+            split,
+            support
         }
     };
 </script>
